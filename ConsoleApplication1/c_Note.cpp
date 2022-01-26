@@ -8,6 +8,14 @@ c_Note::c_Note()
 	this->message = "None";
 }
 
+c_Note::c_Note(int day, int mounth, int year, std::string message)
+{
+	this->setDay(day);
+	this->setMounth(mounth);
+	this->setYear(year);
+	this->setMessage(message);
+}
+
 void c_Note::setDay(int day)
 {
 	try
@@ -67,7 +75,7 @@ void c_Note::setMessage(std::string message)
 	this->message = message;
 }
 
-void c_Note::createNote(int day, int mounth, int year, std::string message)
+void c_Note::editNote(int day, int mounth, int year, std::string message)
 {
 	this->setDay(day);
 	this->setMounth(mounth);
@@ -79,4 +87,5 @@ std::ostream& operator<<(std::ostream& out, const c_Note& note)
 {
 	out << note.getDay() << " " << note.getMounth() << " " << note.getYear() << "\n";
 	out << note.getMessage() << "\n";
+	return out;
 }
